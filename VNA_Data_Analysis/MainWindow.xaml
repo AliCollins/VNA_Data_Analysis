@@ -1,12 +1,13 @@
-﻿<Window x:Class="VNA_Data_Analysis.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VNA_Data_Analysis"
+        xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" x:Class="VNA_Data_Analysis.MainWindow"
         mc:Ignorable="d"
         Title="VNA Data Analysis (Ver 0.1)" Height="400" Width="600" WindowState="Maximized" Cursor="">
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0"/>
@@ -28,7 +29,11 @@
                 </Grid>
             </TabItem>
             <TabItem Header="S11">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <chartingToolkit:Chart Name="S11Chart" Title="S11" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <chartingToolkit:LineSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding}" IsSelectionEnabled="True" />
+                    </chartingToolkit:Chart>
+                </Grid>
             </TabItem>
             <TabItem Header="S12">
                 <Grid Background="#FFE5E5E5"/>

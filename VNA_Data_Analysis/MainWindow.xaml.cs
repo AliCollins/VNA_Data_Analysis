@@ -26,6 +26,15 @@ namespace VNA_Data_Analysis
             InitializeComponent();
             // Retrieve InitialDirectory from Properties
             folderTextBox.Text = Properties.Settings.Default.InitialDirectory;
+
+            List<KeyValuePair<double, double>> entries = new List<KeyValuePair<double, double>>();
+            entries.Add(new KeyValuePair<double, double>(0.0, 1.0));
+            entries.Add(new KeyValuePair<double, double>(1.0, 1.2));
+            entries.Add(new KeyValuePair<double, double>(2.0, 1.3));
+            entries.Add(new KeyValuePair<double, double>(3.0, 1.5));
+            entries.Add(new KeyValuePair<double, double>(5.0, 1.9));
+
+            S11Chart.DataContext = entries;
         }
 
         /// <summary>
